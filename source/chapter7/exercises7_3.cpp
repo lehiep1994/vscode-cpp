@@ -51,7 +51,7 @@ int main(){
     size_t field_width = max_lenght + 2;
     size_t count {};
     for(auto & name: names){
-        cout << setw(field_width) << endl;
+        cout << setw(field_width) << name;
         if(!(++count % 5)) cout << endl;
     }
     cout << endl;
