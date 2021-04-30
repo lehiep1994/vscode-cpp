@@ -20,7 +20,7 @@ int main(){
     //getline(inputstream,str).
     //The most important thing of this getline() is that it will terminate 
     //as soon as the newline signal is read <=> when user press ENTER BUTTON.
-    getline(cin,text);
+    //getline(cin,text);
 
     //For this version of getline(1,2,3) with the third parameter is "#"
     //the string entered by user will not be terminated by newline signal
@@ -29,8 +29,8 @@ int main(){
 
     int vowel = 0, consonant = 0;
     //of course, the forloop - range-based can be used rather than the traditional one.
-    
-    for(size_t i {}; i < text.length(); i++){
+
+    /*for(size_t i {}; i < text.length(); i++){
         if(isalpha(text[i])){
             switch(tolower(text[i])){
                 case 'a':case 'e':case 'i':case 'o':case 'u':
@@ -42,7 +42,21 @@ int main(){
                     break;
             }
         }
+    }*/
+    for(const auto & ch: text){
+        if(isalpha(ch)){
+            switch(ch){
+                case 'a':case 'e':case 'i':case 'o':case 'u':
+                    ++vowel;
+                break;
+
+                default:
+                    ++consonant;
+                    break;
+            }
+        }
     }
+    
     cout << "YOUR INPUT CONTAINED: " << vowel << " vowels and "
         << consonant << " consonants." << endl;
     return EXIT_SUCCESS;
