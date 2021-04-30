@@ -1,6 +1,6 @@
 #include <iostream>
 #include <iomanip>
-#include <cctype>
+#include <cctype>~
 #include <memory>
 #include <vector>
 
@@ -14,15 +14,15 @@ int main(){
   size_t age {};
   PClass pclass;
   char answer {};
-  while (true)
-  {
+
+  while (true){
     pclass = make_shared<Class>();
     pclasses->push_back(pclass);
 
-    std::cout << "Enter ages for the class, enter 0 to end:\n";
-    while (true)
-    {
-      std::cin >> age;
+    cout << "Enter ages for the class, enter 0 to end:\n";
+    
+    while (true){
+      cin >> age;
       if (!age) break;
       pclass->push_back(age);
     }
@@ -34,16 +34,16 @@ int main(){
   const size_t perline {5};
   size_t count {};
   size_t class_id {};
-  for (auto& pclass : *pclasses)
-  {
+
+  for (auto& pclass : *pclasses){
     count = 0;
     cout << "\nAges of student in class " << ++class_id << ":\n";
     for (auto age : *pclass){
-      cout << std::setw(5) << age;
+      cout << setw(5) << age;
       if (++count % perline) continue;
-      cout << std::endl;
+      cout << endl;
     }
-    cout << std::endl;
+    cout << endl;
   }
   return EXIT_SUCCESS;
 }
