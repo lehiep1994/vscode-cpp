@@ -5,9 +5,15 @@
 #include <memory>
 
 using namespace std;
+using Words = vector<string>;
+using PWords = shared_ptr<Words>;
+
+//Function prototype
+PWords find_words(const string& str, const string& separators);
+void list_words(PWords pWords);
 
 /*void find_words(vector<string>& words, string& str, const string& separators);*/
-void list_words(const vector<string>& words);
+/*void list_words(const vector<string>& words);*/
 
 int main(){
     string text;
@@ -20,8 +26,10 @@ int main(){
     find_words(words,text,separators);
     list_words(words);*/
 
-    auto pWords = find_words(text,separators);
-    list_words(pWords);
+    /*auto pWords = find_words(text,separators);
+    list_words(pWords);*/
+
+    list_words(find_words(text,separators));
     
     return EXIT_SUCCESS;
 }
@@ -47,7 +55,8 @@ int main(){
     cout << endl;
 }*/
 
-shared_ptr<vector<string>> find_words(const string& str, const string& separators){
+//Function declaration
+PWords find_words(const string& str, const string& separators){
     auto pWords = make_shared<vector<string>>();
     
     size_t start {str.find_first_not_of(separators)};
@@ -62,7 +71,7 @@ shared_ptr<vector<string>> find_words(const string& str, const string& separator
     return pWords;
 }
 
-void list_words(const shared_ptr<vector<string>> pWords){
+void list_words(PWords pWords){
     cout << "your string contains the following " << pWords->size() << " words:\n";
     size_t count {};
     for(const auto&word: *pWords){
