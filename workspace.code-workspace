@@ -6,7 +6,12 @@
 	],
 	"settings": {
 		"files.associations": {
-			"stdbool.h": "c"
+			"stdbool.h": "c",
+			"cctype": "c",
+			"*.tcc": "c",
+			"string": "c",
+			"istream": "c",
+			"streambuf": "c"
 		}
 	}
 }
