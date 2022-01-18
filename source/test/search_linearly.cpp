@@ -1,6 +1,8 @@
 /*resursive program to linearly search an element in a given array*/
 #include <iostream>
+
 #define MAX 100
+
 //const int MAX 100;
 
 using namespace std;
